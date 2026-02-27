@@ -2,18 +2,8 @@
 import os
 import time
 import streamlit as st
-from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from langchain_chatbot import model
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
-
-load_dotenv() 
-
-model = ChatOpenAI(
-    model="llama-3.1-8b-instant",
-    api_key=os.getenv("GROQ_API_KEY"),         # Required for Groq
-    base_url="https://api.groq.com/openai/v1",  # Required for Groq
-    streaming= True
-)
 
 # ---------- Page Title ----------
 st.markdown(
@@ -104,4 +94,5 @@ with cold:
                 ]
             st.session_state.show_prompts = True
             st.session_state.prompt_input = None
+
             st.rerun()
