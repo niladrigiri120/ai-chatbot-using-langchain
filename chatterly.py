@@ -2,8 +2,15 @@
 import os
 import time
 import streamlit as st
-from langchain_chatbot import model
+from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
+
+# ---------- LLM ----------
+model = ChatGroq(
+    model= "openai/gpt-oss-20b",
+    api_key= os.getenv("Groq_api_key")
+    streaming= True
+    )
 
 # ---------- Page Title ----------
 st.markdown(
@@ -96,3 +103,4 @@ with cold:
             st.session_state.prompt_input = None
 
             st.rerun()
+
