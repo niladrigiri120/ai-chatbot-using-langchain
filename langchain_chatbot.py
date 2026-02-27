@@ -3,11 +3,9 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import os
 
-model = ChatGroq(
-    model= "openai/gpt-oss-20b",
-    api_key= os.getenv("Groq_api_key")
-    streaming= True
-    )
+load_dotenv()
+
+model = ChatGroq(model= "openai/gpt-oss-20b")
 
 chat_history = [SystemMessage(content= 'You are a good AI assistant')]
 
@@ -20,6 +18,7 @@ while True:
     chat_history.append(AIMessage(content= result.content))
 
     print("AI: ",result.content)
+
 
 
 
