@@ -1,14 +1,12 @@
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
-from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-model = ChatOpenAI(
-    model="llama-3.1-8b-instant", #openai/gpt-oss-20b
-    api_key=os.getenv("GROQ_API_KEY"),
-    base_url="https://api.groq.com/openai/v1",
+model = ChatGroq(
+    model="openai/gpt-oss-20b"
     )
 
 chat_history = [SystemMessage(content= 'You are a good AI assistant')]
@@ -22,4 +20,5 @@ while True:
     chat_history.append(AIMessage(content= result.content))
 
     print("AI: ",result.content)
+
 
