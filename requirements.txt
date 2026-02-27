@@ -1,7 +1,4 @@
 langchain
 langchain-core
-
-langchain-openai
-openai
-
+langchain-groq
 python-dotenv
