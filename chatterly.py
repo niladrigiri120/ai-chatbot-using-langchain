@@ -8,7 +8,7 @@ from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 # ---------- LLM ----------
 model = ChatGroq(
     model= "openai/gpt-oss-20b",
-    api_key= os.getenv("Groq_api_key")
+    api_key= os.getenv("Groq_api_key"),
     streaming= True
     )
 
@@ -103,4 +103,5 @@ with cold:
             st.session_state.prompt_input = None
 
             st.rerun()
+
 
