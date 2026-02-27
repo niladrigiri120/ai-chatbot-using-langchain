@@ -6,7 +6,8 @@ import os
 load_dotenv()
 
 model = ChatGroq(
-    model="openai/gpt-oss-20b"
+    model= "openai/gpt-oss-20b",
+    streaming= True
     )
 
 chat_history = [SystemMessage(content= 'You are a good AI assistant')]
@@ -20,5 +21,6 @@ while True:
     chat_history.append(AIMessage(content= result.content))
 
     print("AI: ",result.content)
+
 
 
