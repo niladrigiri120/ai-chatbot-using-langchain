@@ -5,7 +5,7 @@ import os
 
 model = ChatGroq(
     model= "openai/gpt-oss-20b",
-    api_key= os.getenv(Groq_api_key)
+    api_key= os.getenv("Groq_api_key")
     streaming= True
     )
 
@@ -20,6 +20,7 @@ while True:
     chat_history.append(AIMessage(content= result.content))
 
     print("AI: ",result.content)
+
 
 
 
